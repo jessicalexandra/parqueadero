@@ -4,7 +4,7 @@ import { StyleSheet, View } from "react-native";
 import { Text, TextInput ,Button} from "react-native-paper";
 import { users } from "../data/users";
 import { useState } from "react";
-import { ImageBackground } from "../componets/styles"
+
 
 
 
@@ -31,7 +31,7 @@ export const Login = ({navigation}) => {
 
       }
   return (
-    <ImageBackground>
+    
     <View style={ styles.container }>
         {error !== '' && <Text>{error}</Text>}
           <Controller
@@ -81,7 +81,7 @@ export const Login = ({navigation}) => {
               }}
               >Registrate aqui</Text>
     </View>
-    </ImageBackground> )
+   
 }
 
 
