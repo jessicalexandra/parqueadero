@@ -1,6 +1,7 @@
 import { Text } from "react-native-paper";
 import { View } from "react-native";
 import { cars } from "../data/cars";
+import{styleV,styles} from "../css/style"
 
 export const Listar = ({navigation, route}) => {
   console.log(route);

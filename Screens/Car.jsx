@@ -4,6 +4,7 @@ import { StyleSheet, View } from "react-native";
 import { Text, TextInput, Button, Checkbox } from "react-native-paper";
 import { useState } from "react";
 import{cars}from "../data/cars"
+import{styleV,styles} from "../css/style"
 
 
 export const Car = ({ navigation }) => {
@@ -95,12 +96,3 @@ export const Car = ({ navigation }) => {
 }
 
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
-//________________

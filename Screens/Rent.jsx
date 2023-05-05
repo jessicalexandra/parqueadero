@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { View } from "react-native-web";
 import{useForm,Controller} from "react-hook-form"
 import { Button,Text,TextInput } from "react-native-paper";
 import { users } from "../data/users";
 import {cars} from "../data/cars"
 import {rents} from "../data/rents"
+import { StyleSheet ,View} from "react-native";
+import {styleV,styles } from "../css/style";
 
 export const Rent=({navigation})=>{
   const [errorUser, setErrorUser] = useState('');
@@ -24,8 +25,8 @@ export const Rent=({navigation})=>{
     setErrorCar('');
     setError('');
     const findUser = users.find(user => user.userName === userName);
-    const findCar = cars.find(car => car.plateNumber === Number(plateNumber) && car.state === true);
-    const findRent = rents.find(rent => rent.rentNumber === Number(rentNumber));
+    const findCar = cars.find(car => car.plateNumber === plateNumber && car.state === true);
+    const findRent = rents.find(rent => rent.rentNumber === rentNumber);
 
     if (!findUser) {
       setErrorUser(`El username ingresado no esta registrado`);
@@ -45,11 +46,14 @@ export const Rent=({navigation})=>{
       rents.push({rentNumber, userName, plateNumber, rentDate});
       findCar.state = false;
       reset();
-      navigation.navigate('ListCar', { cars });
+      navigation.navigate('Listar', { cars });
     }
-
-
+    
   }
+
+
+
+  
   return (
     <View style={ styles.container }>
       <Controller
@@ -60,7 +64,7 @@ export const Rent=({navigation})=>{
         }}
         render={({ field: { onChange, onBlur, value } }) => (
           <TextInput
-            style={styleInput.widthInput}
+            // style={styleInput.widthInput}
             onBlur={onBlur}
             value={value}
             onChangeText={onChange}
@@ -71,8 +75,8 @@ export const Rent=({navigation})=>{
         )}
         name="rentNumber"
       />
-      {errors.rentNumber?.type === 'required' && <Text style={styleAlert.alert}>El username es obligatorio</Text>}
-      {errors.rentNumber?.type === 'pattern' && <Text style={styleAlert.alert}>El numero de renta solo permite numero</Text>}
+      {errors.rentNumber?.type === 'required' && <Text style={styleV.alert}>El username es obligatorio</Text>}
+      {errors.rentNumber?.type === 'pattern' && <Text style={styleV.alert}>El numero de renta solo permite numero</Text>}
 
       {
         error !== '' && <Text style={{ color: 'red', marginBottom: 20 }}>{error}</Text>
@@ -86,7 +90,7 @@ export const Rent=({navigation})=>{
         }}
         render={({ field: { onChange, onBlur, value } }) => (
           <TextInput
-            style={styleInput.widthInput}
+            // style={styleInput.widthInput}
             onBlur={onBlur}
             value={value}
             onChangeText={onChange}
@@ -97,8 +101,8 @@ export const Rent=({navigation})=>{
         )}
         name="userName"
       />
-      {errors.userName?.type === 'required' && <Text style={styleAlert.alert}>El username es obligatorio</Text>}
-      {errors.userName?.type === 'pattern' && <Text style={styleAlert.alert}>El username no permite caracteres especiasles</Text>}
+      {errors.userName?.type === 'required' && <Text style={styleV.alert}>El username es obligatorio</Text>}
+      {errors.userName?.type === 'pattern' && <Text style={styleV.alert}>El username no permite caracteres especiasles</Text>}
       {
         errorUser !== '' && <Text style={{ color: 'red', marginBottom: 20 }}>{errorUser}</Text>
       }
@@ -107,11 +111,11 @@ export const Rent=({navigation})=>{
         control={control}
         rules={{
           required: true,
-          pattern: /^[0-9]*$/
+          // pattern: /^[0-9]*$/
         }}
         render={({ field: { onChange, onBlur, value } }) => (
           <TextInput
-            style={styleInput.widthInput}
+            // style={styleInput.widthInput}
             onBlur={onBlur}
             value={value}
             onChangeText={onChange}
@@ -122,8 +126,8 @@ export const Rent=({navigation})=>{
         )}
         name="plateNumber"
       />
-      {errors.plateNumber?.type === 'required' && <Text style={styleAlert.alert}>El numero de placa es obligatorio</Text>}
-      {errors.plateNumber?.type === 'pattern' && <Text style={styleAlert.alert}>El numero de placa solo permite numero</Text>}
+      {errors.plateNumber?.type === 'required' && <Text style={styleV.alert}>El numero de placa es obligatorio</Text>}
+      {/* {errors.plateNumber?.type === 'pattern' && <Text style={styleV.alert}>El numero de placa solo permite numero</Text>} */}
       {
         errorCar !== '' && <Text style={{ color: 'red', marginBottom: 20 }}>{errorCar}</Text>
       }
@@ -132,11 +136,11 @@ export const Rent=({navigation})=>{
         control={control}
         rules={{
           required: true,
-          pattern: /^[a-zA-Z0-9\ áéíóúÁÉÍÓÚñÑ\s]*$/
+          // pattern: /^[a-zA-Z0-9/-\ áéíóúÁÉÍÓÚñÑ\s]*$/
         }}
         render={({ field: { onChange, onBlur, value } }) => (
           <TextInput
-            style={styleInput.widthInput}
+            // style={styleInput.widthInput}
             onBlur={onBlur}
             value={value}
             onChangeText={onChange}
@@ -147,8 +151,8 @@ export const Rent=({navigation})=>{
         )}
         name="rentDate"
       />
-      {errors.rentDate?.type === 'required' && <Text style={styleAlert.alert}>La fecha es obligatorio</Text>}
-      {errors.rentDate?.type === 'pattern' && <Text style={styleAlert.alert}>La fecha no permite caracteres especiasles</Text>}
+      {errors.rentDate?.type === 'required' && <Text style={styleV.alert}>La fecha es obligatorio</Text>}
+      {/* {errors.rentDate?.type === 'pattern' && <Text style={styleV.alert}>La fecha no permite caracteres especiasles</Text>} */}
 
       <Button
         buttonColor='#2b78fd'
@@ -161,5 +165,5 @@ export const Rent=({navigation})=>{
       </Button>
     </View>
   )
-}
+        }
 

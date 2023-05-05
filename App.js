@@ -3,11 +3,12 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialIcons } from '@expo/vector-icons';
-import { Car } from './Screens/Car';
-import { Login } from './Screens/login';
-import { Listar } from './Screens/listar';
-import { User } from './Screens/user';
-import { Rent } from './Screens/rent';
+import { Car } from './Screens/car';
+import { Listar } from './Screens/Listar';
+import { Login } from './Screens/Login';
+import {User} from './Screens/User'
+import { Rent } from './Screens/Rent';
+
 
 const Stack=createNativeStackNavigator();
 const Tab=createBottomTabNavigator();

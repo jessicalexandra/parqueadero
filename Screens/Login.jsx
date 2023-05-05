@@ -4,7 +4,7 @@ import { StyleSheet, View } from "react-native";
 import { Text, TextInput ,Button} from "react-native-paper";
 import { users } from "../data/users";
 import { useState } from "react";
-
+import{styleV,styles} from "../css/style"
 
 
 
@@ -81,16 +81,7 @@ export const Login = ({navigation}) => {
               }}
               >Registrate aqui</Text>
     </View>
-   
+  )  
 }
 
 
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      ImageBackground: '../assets/parqueadero.jfif',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-  });
-  
